@@ -34,7 +34,7 @@ def table(n: dict) -> str:
 
 def main():
     text = README.read_text(encoding="utf-8")
-    new = re.sub(r"(<!-- results:start -->\n).*?(\n<!-- results:end -->)", lambda m: m.group(1) + table(numbers()) + m.group(2),
+    new = re.sub(r"(<!-- results:start -->\n).*?(<!-- results:end -->)", lambda m: m.group(1) + table(numbers()) + "\n" + m.group(2),
                  text, flags=re.S)
     README.write_text(new, encoding="utf-8")
     print("README.md results table refreshed")

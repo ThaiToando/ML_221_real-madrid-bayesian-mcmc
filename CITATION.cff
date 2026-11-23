@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "Does money buy wins at Real Madrid? Seven probability models on Transfermarkt data"
+type: software
+authors:
+  - family-names: "Do"
+    given-names: "Thai Toan"
+repository-code: "https://github.com/ThaiToando/ML221-RealMadrid_Probability"
+url: "https://thaitoando.github.io/ML221-RealMadrid_Probability/"
+license: MIT
+version: 1.0.0
+date-released: "2026-11-23"
+keywords:
+  - probability
+  - bayesian statistics
+  - football analytics
+  - monte carlo
+  - real madrid

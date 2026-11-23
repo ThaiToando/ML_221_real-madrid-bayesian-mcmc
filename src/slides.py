@@ -31,6 +31,7 @@ NODE = DECK / "node_modules"          # npm install --prefix docs reveal.js@5.1.
 from src.style import DECK as _D  # noqa: E402
 NAVY, LLY, NVO, SPX = _D["accent"], _D["c1"], _D["c2"], _D["c3"]     # accent / Real Madrid / rivals / others
 APP_URL = "https://YOUR-APP.streamlit.app"          # paste the deployed Streamlit link here
+SITE_URL = "https://thaitoando.github.io/ML221-RealMadrid_Probability/"   # GitHub Pages: link previews use docs/img/social.png
 AUTHOR = "Do Thai Toan"
 COURSE = "MATH 221 Applied Probability"
 REPORT = "Real Madrid CF, La Liga 2014/15 to 2025/26"
@@ -576,6 +577,13 @@ def vendor() -> tuple[str, str]:
     return REVEAL_CDN, ""
 
 
+SHARE_TEXT = ("Seven probability models on twelve seasons of Transfermarkt data, presented as a live, interactive deck. "
+              f"{COURSE} final project by {AUTHOR}.")
+FAVICON = ("data:image/svg+xml," + __import__("urllib.parse").parse.quote(
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#2b211b"/>'
+    '<circle cx="32" cy="32" r="18" fill="none" stroke="#e53935" stroke-width="6"/><circle cx="32" cy="32" r="5" fill="#f5ede2"/></svg>'))
+
+
 def build_html(slides, fake):
     ASSETS.mkdir(parents=True, exist_ok=True)
     REVEAL, katex_opt = vendor()
@@ -615,6 +623,17 @@ def build_html(slides, fake):
               f'<span class="clock" id="clock">00:00</span><span class="page" id="page"></span></div>')
     doc = f"""<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
 <title>Does Money Buy Wins at Real Madrid? · {AUTHOR} · {COURSE}</title>
+<meta name="description" content="{SHARE_TEXT}">
+<meta name="author" content="{AUTHOR}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Does money buy wins at Real Madrid?">
+<meta property="og:description" content="{SHARE_TEXT}">
+<meta property="og:url" content="{SITE_URL}">
+<meta property="og:image" content="{SITE_URL}img/social.png">
+<meta property="og:image:width" content="1280"><meta property="og:image:height" content="640">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{SITE_URL}img/social.png">
+<link rel="icon" href="{FAVICON}">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="{REVEAL}/dist/reveal.css"><link rel="stylesheet" href="{REVEAL}/dist/theme/{'white' if D['theme'] == 'paper' else 'black'}.css">
 <style>{CSS}</style></head><body>{STATUS}<div class="reveal"><div class="slides">
