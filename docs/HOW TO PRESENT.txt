@@ -1,0 +1,30 @@
+Does money buy wins at Real Madrid?
+Do Thai Toan - MATH 221 Applied Probability, Final Project
+
+HOW TO OPEN
+1. Unzip the whole folder first (right-click the zip > Extract All). Do not open files from inside the zip.
+2. Open the folder and double-click index.html. Use Google Chrome or Microsoft Edge.
+   (If it opens in another browser: right-click index.html > Open with > Chrome.)
+3. No internet is needed. Everything (charts, videos, photos, fonts, maths) is inside this folder.
+   Keep the folder together: index.html needs the "assets" and "vendor" folders next to it.
+
+KEYS WHILE PRESENTING
+  Right arrow / Space   next point or slide
+  Left arrow            back
+  Down arrow            extra views under a slide (shown as "2 more views")
+  F                     full screen (Esc to leave)
+  S                     speaker notes in a second window (with timer)
+  O                     overview of all slides
+  K                     restart the clock in the footer
+  V                     play / pause the video on the slide
+  [  and  ]             video back / forward 5 seconds
+  Alt + click           zoom into part of the slide (Alt + click again to zoom out)
+Charts: hover for numbers, drag to rotate the 3D ones, press the Play button on a chart to replay it.
+
+OTHER FILES
+  deck.pdf    the file to submit (static pictures of every slide)
+  deck.pptx   PowerPoint copy (static, for backup)
+
+BEFORE THE TALK
+  Open the deck once on the presentation computer and click through every slide and its extras,
+  so the browser has loaded the videos.

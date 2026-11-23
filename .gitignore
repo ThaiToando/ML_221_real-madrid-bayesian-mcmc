@@ -1,0 +1,24 @@
+.venv/
+__pycache__/
+data/raw/
+*.zip
+.DS_Store
+animations/media/
+go_live.log
+.requirements-core.txt
+# player photos are CC BY / CC BY-SA (see figures/players/LICENSES.md), so they are published with the deck
+# local builds and copies (rebuild with: python run_all.py --deck, python -m src.single_file)
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+figures/interactive/
+/Real_Madrid_MATH221_Presentation/
+/Real_Madrid_MATH221_Presentation.html
+docs/node_modules/
+docs/package-lock.json
+# course material: not ours to publish
+reference/
+# local assistant settings (kept on this computer, not published)
+.claude/
+AGENTS.md
+CLAUDE.md

@@ -1,0 +1,16 @@
+.git
+.github
+.venv
+**/__pycache__
+.mypy_cache
+.ruff_cache
+.pytest_cache
+data/raw
+animations/media
+figures/interactive
+reference
+Real_Madrid_MATH221_Presentation
+Real_Madrid_MATH221_Presentation.html
+*.zip
+go_live.log
+docs/node_modules

@@ -1,0 +1,38 @@
+[project]
+name = "real-madrid-probability"
+version = "1.0.0"
+description = "Does money buy wins at Real Madrid? Seven probability models on Transfermarkt data, presented as an interactive deck."
+readme = "README.md"
+authors = [{ name = "Do Thai Toan" }]
+license = { text = "MIT (code); see README for data and photo licences" }
+requires-python = ">=3.10"
+keywords = ["probability", "bayesian-statistics", "football-analytics", "monte-carlo", "real-madrid", "plotly", "reveal-js"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Scientific/Engineering :: Mathematics",
+]
+dependencies = [
+  "pandas>=2.2", "numpy>=1.26", "scipy>=1.13", "statsmodels>=0.14", "scikit-learn>=1.5", "matplotlib>=3.8",
+  "plotly>=5.22", "streamlit>=1.50", "requests>=2.31", "kaleido>=1.0", "python-pptx>=1.0",
+]
+
+[project.optional-dependencies]
+pdf = ["playwright>=1.45"]
+videos = ["manim>=0.18"]
+dev = ["ruff>=0.12", "pytest>=8.0", "pre-commit>=3.7"]
+
+[tool.ruff]
+line-length = 130
+target-version = "py310"
+extend-exclude = ["docs", "animations/media", "data"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W"]
+# E501 long lines are fine for chart code; E731/E701/E702 keep short one-liners readable in the Q&A
+ignore = ["E501", "E731", "E701", "E702", "E741", "E402", "E722"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-q"

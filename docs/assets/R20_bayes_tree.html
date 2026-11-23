@@ -1,0 +1,56 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Bayes' rule: one good first season</title>
+<script src="plotly.min.js"></script>
+<style>
+ body { margin: 0; background: #2b211b; color: #f5ede2; font-family: 'Times New Roman', Times, serif; }
+ .wrap { display: flex; gap: 18px; padding: 14px 16px; height: calc(100vh - 28px); box-sizing: border-box; }
+ .panel { width: 300px; flex: 0 0 300px; background: #352a22; border: 1px solid #4d3f33; padding: 14px; }
+ .main { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+ h1 { font-size: 18px; color: #ef5350; margin: 0 0 8px; font-weight: 700; }
+ label { display: block; font-size: 12px; color: #e0d3c1; margin: 14px 0 4px; text-transform: uppercase; letter-spacing: .06em; }
+ input[type=range] { width: 100%; accent-color: #ef5350; }
+ select { width: 100%; background: #2b211b; color: #f5ede2; border: 1px solid #4d3f33; padding: 4px; font-family: 'Times New Roman', Times, serif; }
+ .val { float: right; color: #ef5350; }
+ .big { font-size: 44px; color: #ef5350; margin: 16px 0 2px; }
+ .small { font-size: 12px; color: #b3a28c; line-height: 1.5; }
+ .chk { font-size: 13px; color: #e0d3c1; margin-top: 12px; }
+ .src { font-size: 10px; color: #b3a28c; text-align: right; }
+</style></head><body><div class="wrap"><div class="panel"><h1>Bayes' rule: one good first season</h1>
+<label>Prior: P(regular) <span class="val" id="pV"></span></label><input id="p" type="range" min="0.05" max="0.95" step="0.01" value="0.45">
+<label>P(starts 8 of first 10 | regular) <span class="val" id="aV"></span></label><input id="a" type="range" min="0.05" max="0.95" step="0.01" value="0.60">
+<label>P(starts 8 of first 10 | flop) <span class="val" id="bV"></span></label><input id="b" type="range" min="0.01" max="0.95" step="0.01" value="0.15">
+<div class="big" id="post"></div><div class="small">P(regular | he started 8 of his first 10)</div>
+<div class="small" style="margin-top:14px">Lecture notes 1.4. Set the prior to 0.10 and the same evidence gives only 31%: base rates matter.</div></div>
+<div class="main"><div id="plot" style="flex:1"></div><div class="src">Data: Transfermarkt via transfermarkt-datasets; authors' calculations</div></div></div>
+<script>
+const DATA = {};
+const C = {"bg": "#2b211b", "panel": "#352a22", "grid": "#4d3f33", "ink": "#f5ede2", "ink2": "#e0d3c1", "muted": "#b3a28c", "gold": "#e53935", "navy": "#8db4dc", "grey": "#b2a99c", "down": "#7fa7d6", "up": "#66bb6a", "mono": "'Times New Roman', Times, serif"};
+const LAYOUT = {paper_bgcolor: C.bg, plot_bgcolor: C.panel, font: {family: C.mono, color: C.ink, size: 13},
+  margin: {l: 60, r: 20, t: 40, b: 50}, showlegend: true, legend: {orientation: 'h', y: -0.15, font: {color: C.ink2}},
+  xaxis: {gridcolor: C.grid, zerolinecolor: C.grid}, yaxis: {gridcolor: C.grid, zerolinecolor: C.grid}};
+const $ = id => document.getElementById(id);
+
+function draw() {
+  const p = +$('p').value, a = +$('a').value, b = +$('b').value;
+  $('pV').textContent = p.toFixed(2); $('aV').textContent = a.toFixed(2); $('bV').textContent = b.toFixed(2);
+  const j = [p * a, p * (1 - a), (1 - p) * b, (1 - p) * (1 - b)];
+  const post = j[0] / (j[0] + j[2]);
+  $('post').textContent = (100 * post).toFixed(1) + '%';
+  const nodes = {root: [0.05, 0.5], R: [0.4, 0.75], F: [0.4, 0.25], RS: [0.78, 0.88], RN: [0.78, 0.62], FS: [0.78, 0.38], FN: [0.78, 0.12]};
+  const edges = [['root', 'R', p, 'regular ' + p.toFixed(2), C.gold], ['root', 'F', 1 - p, 'flop ' + (1 - p).toFixed(2), C.navy],
+    ['R', 'RS', j[0], 'starts ' + a.toFixed(2), C.gold], ['R', 'RN', j[1], 'not ' + (1 - a).toFixed(2), C.grey],
+    ['F', 'FS', j[2], 'starts ' + b.toFixed(2), C.navy], ['F', 'FN', j[3], 'not ' + (1 - b).toFixed(2), C.grey]];
+  const tr = edges.map(([u, v, w, lab, col]) => ({x: [nodes[u][0], nodes[v][0]], y: [nodes[u][1], nodes[v][1]], mode: 'lines',
+    line: {width: 2 + 30 * w, color: col}, hoverinfo: 'text', text: lab, showlegend: false}));
+  const leaves = [['RS', j[0], 'regular AND starts', C.gold], ['RN', j[1], 'regular, not', C.grey], ['FS', j[2], 'flop AND starts', C.navy], ['FN', j[3], 'flop, not', C.grey]];
+  tr.push({x: leaves.map(l => nodes[l[0]][0] + 0.02), y: leaves.map(l => nodes[l[0]][1]), mode: 'text', textposition: 'middle right',
+    text: leaves.map(l => l[2] + '  ' + (100 * l[1]).toFixed(1) + '%'), textfont: {color: C.ink, size: 14}, showlegend: false});
+  tr.push({x: edges.map(e => (nodes[e[0]][0] + nodes[e[1]][0]) / 2), y: edges.map(e => (nodes[e[0]][1] + nodes[e[1]][1]) / 2 + 0.035),
+    mode: 'text', text: edges.map(e => e[3]), textfont: {color: C.ink2, size: 12}, showlegend: false});
+  const L = JSON.parse(JSON.stringify(LAYOUT));
+  Object.assign(L, {xaxis: {visible: false, range: [0, 1.15]}, yaxis: {visible: false, range: [0, 1]},
+    title: {text: 'Bayes: ' + (100 * j[0]).toFixed(1) + '% ÷ (' + (100 * j[0]).toFixed(1) + '% + ' + (100 * j[2]).toFixed(1) + '%) = ' + (100 * post).toFixed(1) + '%',
+            font: {color: C.gold, size: 18}, x: 0.01}});
+  Plotly.react('plot', tr, L, {displaylogo: false, responsive: true});
+}
+['p', 'a', 'b'].forEach(id => $(id).addEventListener('input', draw)); draw();
+</script></body></html>

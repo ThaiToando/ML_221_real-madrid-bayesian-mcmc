@@ -1,0 +1,10 @@
+# Player photo licences
+
+All photos are freely licensed images from Wikimedia Commons (found through each player's Wikidata entry), cropped to a square. CC BY / CC BY-SA allow publishing with attribution; keep these lines with the photos.
+
+- 18922.jpg - "Karim Benzema during an interview in 2021 (2) (cropped).jpg" by Real Madrid YouTube channel, CC BY 3.0, via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Karim_Benzema_during_an_interview_in_2021_(2)_(cropped).jpg); cropped to a square. Free licence: attribution required, publishing allowed.
+- 371998.jpg - "Vinícius Júnior Brazil V Morocco 13 June 2026-207 (cropped).jpg" by Bryan Berlin, CC BY-SA 4.0, via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Vin%C3%ADcius_J%C3%BAnior_Brazil_V_Morocco_13_June_2026-207_(cropped).jpg); cropped to a square. Free licence: attribution required, publishing allowed.
+- 8198.jpg - "Cristiano Ronaldo Croatia v Portugal 2 July 2026-075 (cropped).jpg" by Bryan Berlin, CC BY-SA 4.0, via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Cristiano_Ronaldo_Croatia_v_Portugal_2_July_2026-075_(cropped).jpg); cropped to a square. Free licence: attribution required, publishing allowed.
+- 412363.jpg - "Rodrygo 2023 (cropped).jpg" by Junta de Andalucía, CC BY-SA 2.0, via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Rodrygo_2023_(cropped).jpg); cropped to a square. Free licence: attribution required, publishing allowed.
+- 39381.jpg - "Gareth Bale 2015 (1).jpg" by Дмитрий Журавель, CC BY-SA 3.0, via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Gareth_Bale_2015_(1).jpg); cropped to a square. Free licence: attribution required, publishing allowed.
+- 342229.jpg - "Kylian Mbappe France v Senegal 16 June 2026-391 (cropped).jpg" by Bryan Berlin, CC BY-SA 4.0, via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Kylian_Mbappe_France_v_Senegal_16_June_2026-391_(cropped).jpg); cropped to a square. Free licence: attribution required, publishing allowed.

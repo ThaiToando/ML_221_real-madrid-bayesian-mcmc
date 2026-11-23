@@ -1,0 +1,25 @@
+services:
+  deck:                      # the presentation, as built and committed in docs/
+    build: .
+    image: real-madrid-probability
+    ports: ["8000:8000"]
+    command: python -m http.server 8000 --directory docs
+
+  app:                       # the Streamlit app (live match, season simulator, transfer tracker)
+    image: real-madrid-probability
+    depends_on: [deck]
+    ports: ["8501:8501"]
+    command: streamlit run app/app.py --server.address=0.0.0.0 --server.port=8501 --server.headless=true
+
+  pipeline:                  # rebuild from scratch: download the data, run Parts 1-7, rebuild visuals and the deck
+    image: real-madrid-probability
+    profiles: [pipeline]
+    user: root
+    volumes:
+      - ./data:/app/data
+      - ./figures:/app/figures
+      - ./docs:/app/docs
+      - ./results:/app/results
+    command: >
+      sh -c "python -c 'from src.data_io import download_data, check_club_ids; download_data(); print(check_club_ids())'
+             && python run_all.py --deck"

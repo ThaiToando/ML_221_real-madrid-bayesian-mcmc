@@ -1,0 +1,55 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Leverage: move Real Madrid</title>
+<script src="plotly.min.js"></script>
+<style>
+ body { margin: 0; background: #2b211b; color: #f5ede2; font-family: 'Times New Roman', Times, serif; }
+ .wrap { display: flex; gap: 18px; padding: 14px 16px; height: calc(100vh - 28px); box-sizing: border-box; }
+ .panel { width: 300px; flex: 0 0 300px; background: #352a22; border: 1px solid #4d3f33; padding: 14px; }
+ .main { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+ h1 { font-size: 18px; color: #ef5350; margin: 0 0 8px; font-weight: 700; }
+ label { display: block; font-size: 12px; color: #e0d3c1; margin: 14px 0 4px; text-transform: uppercase; letter-spacing: .06em; }
+ input[type=range] { width: 100%; accent-color: #ef5350; }
+ select { width: 100%; background: #2b211b; color: #f5ede2; border: 1px solid #4d3f33; padding: 4px; font-family: 'Times New Roman', Times, serif; }
+ .val { float: right; color: #ef5350; }
+ .big { font-size: 44px; color: #ef5350; margin: 16px 0 2px; }
+ .small { font-size: 12px; color: #b3a28c; line-height: 1.5; }
+ .chk { font-size: 13px; color: #e0d3c1; margin-top: 12px; }
+ .src { font-size: 10px; color: #b3a28c; text-align: right; }
+</style></head><body><div class="wrap"><div class="panel"><h1>Leverage: move Real Madrid</h1>
+<label>Shift Real Madrid's points <span class="val" id="dyV"></span></label><input id="dy" type="range" min="-50" max="30" step="1" value="0">
+<label>Scale Real Madrid's squad value <span class="val" id="sxV"></span></label><input id="sx" type="range" min="-1.2" max="0.6" step="0.05" value="0">
+<div class="chk"><input type="checkbox" id="drop"> drop Real Madrid completely</div>
+<div class="big" id="slope"></div><div class="small" id="r2"></div>
+<div class="small" style="margin-top:14px">Leverage (notes 10.10): points far from the mean of x pull the line hardest.
+Real Madrid sits at the far right, so moving it tilts the whole fit.</div></div>
+<div class="main"><div id="plot" style="flex:1"></div><div class="src">Data: Transfermarkt via transfermarkt-datasets; authors' calculations</div></div></div>
+<script>
+const DATA = {"x": [-1.2192, 0.8112, 0.9624, 1.0682, 1.1776, 0.9746, 1.2158, 1.0731, 0.9616, 0.6339, 0.6552, 0.8646, 1.5988, 1.4042, 1.4322, 1.2816, 1.4642, 1.3138, 1.0945, 1.1112, 1.0787, 1.2633, 1.1666, 1.3385, -0.8344, -0.8883, -0.7302, -0.3723, 0.0389, -0.1055, -0.187, -0.0053, 0.0546, -0.1238, -0.3029, -1.6229, -1.0714, -1.2216, -0.8459, -1.1596, -1.2297, -1.5958, -1.7974, -1.01, -1.1433, -0.804, -0.6144, -0.9676, -1.0919, -1.9536, -1.2332, -1.1825, -1.0742, -1.5208, -0.8585, -1.2789, -1.4814, -1.7635, -1.0998, -0.9303, -1.4003, -1.1199, -0.1073, 0.133, 0.1503, 0.2517, -0.0163, -0.0095, 0.352, 0.6029, 0.2763, -0.0152, -0.2745, -0.6215, 1.7412, 1.4871, 1.4029, 1.3041, 1.2795, 1.315, 1.0562, 1.0586, 1.134, 1.3608, 1.5868, 1.5671, -1.6642, -0.9663, -0.5205, -1.5951, -0.9026, -0.085, -0.3609, -0.2628, -0.0588, -0.2608, -0.3589, -0.1323, -0.413, -0.1864, -0.2346, 0.1585, 0.264, 0.0046, -0.3001, -0.5525, -0.2069, -0.2815, -0.1192, 0.273, 0.3265, 0.3654, 0.5152, 0.4534, 0.0382, -0.6555, -1.0296, -0.9497, -0.8964, -1.1016, -0.576, -0.9317, -0.7248, -1.503, -1.0421, -0.7708, -1.2199, -0.8348, -0.8171, -0.8137, -0.8092, -0.5135, -0.546, -0.3431, -0.252, -0.5661, -0.6293, -0.7474, -0.4656, -1.1873, -0.8436, -0.8615, 0.2624, 0.5624, 0.341, 0.1174, 0.4674, 0.4382, -0.1258, 0.1142, -0.0151, -0.5438, 0.0746, -0.4168, -2.1718, -0.2326, -0.1035, 0.0005, -0.2695, -0.3022, 0.2058, 0.2346, 0.2823, -0.0055, -0.2308, -0.0136, -0.8042, -0.713, -0.8239, -0.8318, -1.3722, -1.0944, -1.3422, -0.9863, -0.8953, -1.2208, -1.5542, -1.1417, -1.6017, -1.3711, -1.3434, -1.0094, -0.9353, -1.5921, -1.269, -1.6937, -1.5755, -1.0677, -1.4006, -1.6434, -1.3619, -1.2714, -1.0936, -1.6413, -1.4405, -1.1938, -1.4996, -1.2601, -1.4512, -2.0607, -1.4844, -1.1476, -1.0828, -1.3277, -0.9154, -0.8265, -0.9012, -0.9203, -1.1792, -1.241, -1.1254, -0.8824, -0.8502, -1.4976, -0.8746, -1.0864, -1.4192, -1.1716, -0.6422, -0.1807, -0.2351, -0.5291, -0.6568, -1.2445, -1.0818, -1.9707, -1.4607, -1.5364, -1.177, -0.8814, -0.7285, -0.2076, -0.2545, -0.6235, -0.8661, -0.9456, -1.8784, -0.9159, -1.023, -0.8829], "y": [78.0, 88.0, 78.0, 79.0, 76.0, 70.0, 86.0, 71.0, 77.0, 76.0, 76.0, 69.0, 94.0, 91.0, 90.0, 93.0, 87.0, 82.0, 79.0, 73.0, 88.0, 85.0, 88.0, 94.0, 45.0, 39.0, 60.0, 50.0, 41.0, 61.0, 65.0, 60.0, 57.0, 60.0, 60.0, 33.0, 39.0, 50.0, 40.0, 48.0, 42.0, 22.0, 52.0, 44.0, 47.0, 53.0, 45.0, 52.0, 42.0, 41.0, 42.0, 31.0, 40.0, 16.0, 49.0, 38.0, 32.0, 42.0, 49.0, 38.0, 52.0, 50.0, 76.0, 52.0, 72.0, 58.0, 59.0, 70.0, 77.0, 70.0, 49.0, 41.0, 41.0, 43.0, 92.0, 90.0, 93.0, 76.0, 68.0, 87.0, 84.0, 86.0, 78.0, 95.0, 84.0, 86.0, 44.0, 39.0, 22.0, 40.0, 32.0, 55.0, 62.0, 63.0, 43.0, 53.0, 51.0, 46.0, 55.0, 51.0, 68.0, 70.0, 45.0, 46.0, 48.0, 64.0, 49.0, 50.0, 56.0, 62.0, 62.0, 71.0, 60.0, 46.0, 46.0, 49.0, 43.0, 56.0, 49.0, 53.0, 25.0, 42.0, 37.0, 42.0, 46.0, 35.0, 42.0, 36.0, 29.0, 51.0, 60.0, 45.0, 49.0, 41.0, 37.0, 53.0, 46.0, 43.0, 41.0, 55.0, 54.0, 20.0, 77.0, 44.0, 46.0, 73.0, 61.0, 53.0, 43.0, 48.0, 42.0, 49.0, 46.0, 49.0, 60.0, 64.0, 67.0, 61.0, 44.0, 60.0, 58.0, 59.0, 64.0, 53.0, 70.0, 72.0, 50.0, 48.0, 46.0, 20.0, 55.0, 47.0, 50.0, 39.0, 38.0, 31.0, 46.0, 42.0, 43.0, 35.0, 43.0, 45.0, 36.0, 40.0, 41.0, 36.0, 42.0, 25.0, 43.0, 35.0, 43.0, 54.0, 51.0, 47.0, 42.0, 30.0, 39.0, 31.0, 29.0, 44.0, 39.0, 42.0, 33.0, 32.0, 41.0, 21.0, 37.0, 32.0, 46.0, 44.0, 49.0, 41.0, 35.0, 42.0, 37.0, 36.0, 55.0, 59.0, 54.0, 38.0, 39.0, 42.0, 43.0, 42.0, 51.0, 33.0, 34.0, 51.0, 37.0, 49.0, 81.0, 41.0, 41.0, 35.0, 39.0, 20.0, 56.0, 46.0, 38.0, 21.0], "rm": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]};
+const C = {"bg": "#2b211b", "panel": "#352a22", "grid": "#4d3f33", "ink": "#f5ede2", "ink2": "#e0d3c1", "muted": "#b3a28c", "gold": "#e53935", "navy": "#8db4dc", "grey": "#b2a99c", "down": "#7fa7d6", "up": "#66bb6a", "mono": "'Times New Roman', Times, serif"};
+const LAYOUT = {paper_bgcolor: C.bg, plot_bgcolor: C.panel, font: {family: C.mono, color: C.ink, size: 13},
+  margin: {l: 60, r: 20, t: 40, b: 50}, showlegend: true, legend: {orientation: 'h', y: -0.15, font: {color: C.ink2}},
+  xaxis: {gridcolor: C.grid, zerolinecolor: C.grid}, yaxis: {gridcolor: C.grid, zerolinecolor: C.grid}};
+const $ = id => document.getElementById(id);
+
+function ols(x, y) { const n = x.length, mx = x.reduce((a, b) => a + b) / n, my = y.reduce((a, b) => a + b) / n;
+  let sxy = 0, sxx = 0, syy = 0; for (let i = 0; i < n; i++) { sxy += (x[i] - mx) * (y[i] - my); sxx += (x[i] - mx) ** 2; syy += (y[i] - my) ** 2; }
+  const b = sxy / sxx; return {b, a: my - b * mx, r2: sxy * sxy / (sxx * syy)}; }
+const base = ols(DATA.x, DATA.y);
+function draw() {
+  const dy = +$('dy').value, sx = +$('sx').value, drop = $('drop').checked;
+  $('dyV').textContent = (dy > 0 ? '+' : '') + dy; $('sxV').textContent = '×' + Math.exp(sx).toFixed(2);
+  const X = [], Y = [], rx = [], ry = [];
+  DATA.x.forEach((x, i) => { if (DATA.rm[i]) { if (!drop) { X.push(x + sx); Y.push(DATA.y[i] + dy); rx.push(x + sx); ry.push(DATA.y[i] + dy); } }
+                             else { X.push(x); Y.push(DATA.y[i]); } });
+  const f = ols(X, Y), xs = [Math.min(...DATA.x) - 0.1, Math.max(...DATA.x) + 0.6];
+  $('slope').textContent = 'β₁ = ' + f.b.toFixed(1); $('r2').textContent = 'R² ' + f.r2.toFixed(3) + '   (original β₁ ' + base.b.toFixed(1) + ', R² ' + base.r2.toFixed(3) + ')';
+  const tr = [{x: DATA.x.filter((_, i) => !DATA.rm[i]), y: DATA.y.filter((_, i) => !DATA.rm[i]), mode: 'markers', marker: {color: C.grey, size: 7, opacity: 0.6}, name: 'other clubs'},
+    {x: rx, y: ry, mode: 'markers', marker: {color: C.gold, size: 13, line: {color: C.bg, width: 2}}, name: 'Real Madrid (moved)'},
+    {x: xs, y: xs.map(x => base.a + base.b * x), mode: 'lines', line: {color: C.muted, dash: 'dot', width: 2}, name: 'original line'},
+    {x: xs, y: xs.map(x => f.a + f.b * x), mode: 'lines', line: {color: C.navy, width: 3}, name: 'refitted line'}];
+  const L = JSON.parse(JSON.stringify(LAYOUT));
+  Object.assign(L, {xaxis: {title: 'log(squad value ÷ league average)', gridcolor: C.grid}, yaxis: {title: 'points', gridcolor: C.grid},
+    title: {text: 'Least squares refits live: β₁ ' + base.b.toFixed(1) + ' → ' + f.b.toFixed(1), font: {color: C.ink, size: 15}, x: 0.01}});
+  Plotly.react('plot', tr, L, {displaylogo: false, responsive: true});
+}
+['dy', 'sx', 'drop'].forEach(id => $(id).addEventListener('input', draw)); draw();
+</script></body></html>

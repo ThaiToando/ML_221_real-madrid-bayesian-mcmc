@@ -1,0 +1,13 @@
+pandas>=2.2
+numpy>=1.26
+scipy>=1.13
+statsmodels>=0.14
+scikit-learn>=1.5
+matplotlib>=3.8
+plotly>=5.22
+streamlit>=1.50
+requests>=2.31
+kaleido>=1.0        # static PNG twins of the Plotly deck visuals (uses your Chrome)
+python-pptx>=1.0    # PowerPoint copy of the deck
+playwright>=1.45    # optional: docs/deck.pdf (then: playwright install chromium)
+manim>=0.18         # optional: the 3Blue1Brown-style explainer videos (also needs Pango and LaTeX, see animations/)

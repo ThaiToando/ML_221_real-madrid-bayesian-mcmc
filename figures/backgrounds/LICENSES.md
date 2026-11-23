@@ -1,0 +1,7 @@
+# Background photo licences (all from Wikimedia Commons, free licences; credited on the slides that use them)
+
+- bernabeu.jpg, bernabeu_soft.jpg - "Estadio Santiago Bernabéu - Real Madrid-Real Sociedad.jpg" by Badefa, CC0 (https://commons.wikimedia.org/wiki/File:Estadio_Santiago_Bernab%C3%A9u_-_Real_Madrid-Real_Sociedad.jpg). Cropped to leave out the scoreboard and club crest; the soft version is greyscale and faded.
+- trophies.jpg - "Bernabéu Tour (6) (16618219209).jpg" by Daniel from Calgary, Canada, CC BY 2.0 (https://commons.wikimedia.org/wiki/File:Bernab%C3%A9u_Tour_(6)_(16618219209).jpg). European Cups in the Bernabéu trophy room.
+- distefano.jpg - "Alfredo Di Stéfano en Santamaria.jpg" by Joop van Bilsen for Anefo, Nationaal Archief, CC0 (https://commons.wikimedia.org/wiki/File:Alfredo_Di_St%C3%A9fano_en_Santamaria.jpg). Alfredo Di Stéfano and José Santamaría, Schiphol, 1962.
+- undecima.jpg - "Real Madrid, campeón de la Champions (27104454830).jpg" by Cristina Cifuentes, CC BY 2.0 (https://commons.wikimedia.org/wiki/File:Real_Madrid,_campe%C3%B3n_de_la_Champions_(27104454830).jpg). Sergio Ramos with the Champions League trophy at Puerta del Sol, 29 May 2016; cropped.
+- decima.jpg - "Celebración de La Décima Copa de Europa Real Madrid.jpg" by Presidencia de la Comunidad de Madrid, CC BY 3.0 (https://commons.wikimedia.org/wiki/File:Celebraci%C3%B3n_de_La_D%C3%A9cima_Copa_de_Europa_Real_Madrid.jpg). The squad celebrating La Décima, 25 May 2014.
