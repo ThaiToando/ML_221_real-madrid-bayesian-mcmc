@@ -31,7 +31,7 @@ NODE = DECK / "node_modules"          # npm install --prefix docs reveal.js@5.1.
 from src.style import DECK as _D  # noqa: E402
 NAVY, LLY, NVO, SPX = _D["accent"], _D["c1"], _D["c2"], _D["c3"]     # accent / Real Madrid / rivals / others
 APP_URL = "https://YOUR-APP.streamlit.app"          # paste the deployed Streamlit link here
-SITE_URL = "https://thaitoando.github.io/ML221-RealMadrid_Probability/"   # GitHub Pages: link previews use docs/img/social.png
+SITE_URL = "https://thaitoando.github.io/ML_221_real-madrid-bayesian-mcmc/"   # GitHub Pages: link previews use docs/img/social.png
 AUTHOR = "Do Thai Toan"
 COURSE = "ML 221 Applied Probability"
 TITLE = "Does money buy wins? Bayesian inference and MCMC at Real Madrid"

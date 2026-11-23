@@ -9,12 +9,12 @@
 
 <br>
 
-[![Open the live deck](https://img.shields.io/badge/%E2%96%B6%20Open%20the%20live%20deck-e53935?style=for-the-badge)](https://ThaiToando.github.io/ML221-RealMadrid_Probability/)
-[![Download one-file presentation](https://img.shields.io/badge/%E2%AC%87%20One--file%20presentation-2b211b?style=for-the-badge)](https://ThaiToando.github.io/ML221-RealMadrid_Probability/Real_Madrid_ML221_Presentation.html)
+[![Open the live deck](https://img.shields.io/badge/%E2%96%B6%20Open%20the%20live%20deck-e53935?style=for-the-badge)](https://ThaiToando.github.io/ML_221_real-madrid-bayesian-mcmc/)
+[![Download one-file presentation](https://img.shields.io/badge/%E2%AC%87%20One--file%20presentation-2b211b?style=for-the-badge)](https://ThaiToando.github.io/ML_221_real-madrid-bayesian-mcmc/Real_Madrid_ML221_Presentation.html)
 [![PDF](https://img.shields.io/badge/PDF-slides-555?style=for-the-badge)](docs/deck.pdf)
 
-[![CI](https://github.com/ThaiToando/ML221-RealMadrid_Probability/actions/workflows/ci.yml/badge.svg)](https://github.com/ThaiToando/ML221-RealMadrid_Probability/actions/workflows/ci.yml)
-[![GitHub Pages](https://img.shields.io/badge/deck-live-success)](https://ThaiToando.github.io/ML221-RealMadrid_Probability/)
+[![CI](https://github.com/ThaiToando/ML_221_real-madrid-bayesian-mcmc/actions/workflows/ci.yml/badge.svg)](https://github.com/ThaiToando/ML_221_real-madrid-bayesian-mcmc/actions/workflows/ci.yml)
+[![GitHub Pages](https://img.shields.io/badge/deck-live-success)](https://ThaiToando.github.io/ML_221_real-madrid-bayesian-mcmc/)
 ![Python](https://img.shields.io/badge/python-3.10%20%7C%203.12-3776AB?logo=python&logoColor=white)
 ![Docker](https://img.shields.io/badge/docker-ready-2496ED?logo=docker&logoColor=white)
 ![Code style](https://img.shields.io/badge/lint-ruff-261230)
@@ -116,8 +116,8 @@ KaTeX · Streamlit · Playwright · Docker · GitHub Actions · ruff · pytest
 
 ## Run it
 
-**Just watch it:** open the [live deck](https://ThaiToando.github.io/ML221-RealMadrid_Probability/), or download the
-[one-file presentation](https://ThaiToando.github.io/ML221-RealMadrid_Probability/Real_Madrid_ML221_Presentation.html)
+**Just watch it:** open the [live deck](https://ThaiToando.github.io/ML_221_real-madrid-bayesian-mcmc/), or download the
+[one-file presentation](https://ThaiToando.github.io/ML_221_real-madrid-bayesian-mcmc/Real_Madrid_ML221_Presentation.html)
 and double-click it in Chrome or Edge.
 
 | Key | Action | Key | Action |

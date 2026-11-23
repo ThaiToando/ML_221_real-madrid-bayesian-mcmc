@@ -5,8 +5,8 @@ type: software
 authors:
   - family-names: "Do"
     given-names: "Thai Toan"
-repository-code: "https://github.com/ThaiToando/ML221-RealMadrid_Probability"
-url: "https://thaitoando.github.io/ML221-RealMadrid_Probability/"
+repository-code: "https://github.com/ThaiToando/ML_221_real-madrid-bayesian-mcmc"
+url: "https://thaitoando.github.io/ML_221_real-madrid-bayesian-mcmc/"
 license: MIT
 version: 1.0.0
 date-released: "2026-11-23"
