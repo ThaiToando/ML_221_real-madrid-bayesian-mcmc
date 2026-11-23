@@ -17,7 +17,7 @@ from src.style import GOLD as _G, NAVY as _N, GREY as _Y, plotly_template
 pio.templates["project"] = plotly_template()      # same terminal / paper look as the figures and the deck
 pio.templates.default = "project"
 
-st.set_page_config(page_title="Real Madrid: Does Money Buy Wins?", layout="wide")
+st.set_page_config(page_title="Does money buy wins? Bayesian inference and MCMC at Real Madrid", layout="wide")
 GOLD, NAVY, GREY = _G, _N, _Y
 
 
@@ -36,7 +36,7 @@ def model_for(season):
 
 
 games, signings, players = load_tables()
-st.title("Real Madrid: Does Money Buy Wins?")
+st.title("Does money buy wins? Bayesian inference and MCMC at Real Madrid")
 st.caption("ML 221 final project · every number on this page comes from a probability model you can inspect")
 tab1, tab2, tab3 = st.tabs(["Live season simulator", "Live match", "Bayesian transfer tracker"])
 

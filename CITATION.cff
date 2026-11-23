@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this work, please cite it as below."
-title: "Does money buy wins at Real Madrid? Seven probability models on Transfermarkt data"
+title: "Does money buy wins? Bayesian inference and MCMC at Real Madrid"
 type: software
 authors:
   - family-names: "Do"

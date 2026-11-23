@@ -1,6 +1,7 @@
 <div align="center">
 
-# Does money buy wins at Real Madrid?
+# Does money buy wins?
+### Bayesian inference and MCMC at Real Madrid
 
 **Seven probability models · twelve La Liga seasons · one live, interactive deck**
 

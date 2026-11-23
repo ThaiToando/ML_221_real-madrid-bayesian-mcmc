@@ -34,6 +34,7 @@ APP_URL = "https://YOUR-APP.streamlit.app"          # paste the deployed Streaml
 SITE_URL = "https://thaitoando.github.io/ML221-RealMadrid_Probability/"   # GitHub Pages: link previews use docs/img/social.png
 AUTHOR = "Do Thai Toan"
 COURSE = "ML 221 Applied Probability"
+TITLE = "Does money buy wins? Bayesian inference and MCMC at Real Madrid"
 REPORT = "Real Madrid CF, La Liga 2014/15 to 2025/26"
 
 
@@ -122,7 +123,7 @@ def slide_list(n: dict) -> list[dict]:
     p = lambda x: f"{x:.0%}"  # noqa: E731
     season = lambda s: f"{s}/{(s + 1) % 100:02d}"  # noqa: E731
     return [
-        dict(id=1, kicker=f"Final Project  ·  {COURSE}", title="Does money buy wins at Real Madrid?",
+        dict(id=1, kicker=f"Final Project  ·  {COURSE}", title=TITLE,
              byline=AUTHOR, subtitle="Squad value, transfers and results in La Liga, 2014/15 to 2025/26",
              bullets=["Stadium photo: Badefa, CC0, via Wikimedia Commons"]
                      + ([f"Scan to play with the models: {APP_URL}"] if "YOUR-APP" not in APP_URL else []),
@@ -622,11 +623,11 @@ def build_html(slides, fake):
               f'<div class="footbar"><span class="who">{html.escape(AUTHOR)}</span><span>{html.escape(COURSE)}, Final Project</span>'
               f'<span class="clock" id="clock">00:00</span><span class="page" id="page"></span></div>')
     doc = f"""<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
-<title>Does Money Buy Wins at Real Madrid? · {AUTHOR} · {COURSE}</title>
+<title>{TITLE} · {AUTHOR} · {COURSE}</title>
 <meta name="description" content="{SHARE_TEXT}">
 <meta name="author" content="{AUTHOR}">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Does money buy wins at Real Madrid?">
+<meta property="og:title" content="{TITLE}">
 <meta property="og:description" content="{SHARE_TEXT}">
 <meta property="og:url" content="{SITE_URL}">
 <meta property="og:image" content="{SITE_URL}img/social.png">
@@ -711,7 +712,7 @@ def build_pptx(slides, fake):
     prs = Presentation()
     prs.core_properties.author = AUTHOR
     prs.core_properties.last_modified_by = AUTHOR
-    prs.core_properties.title = "Does money buy wins at Real Madrid?"
+    prs.core_properties.title = TITLE
     prs.core_properties.subject = COURSE + ", Final Project"
     prs.slide_width, prs.slide_height = Inches(13.333), Inches(7.5)
     blank = prs.slide_layouts[6]

@@ -1,7 +1,7 @@
 [project]
 name = "real-madrid-probability"
 version = "1.0.0"
-description = "Does money buy wins at Real Madrid? Seven probability models on Transfermarkt data, presented as an interactive deck."
+description = "Does money buy wins? Bayesian inference and MCMC at Real Madrid: seven probability models on Transfermarkt data, presented as an interactive deck."
 readme = "README.md"
 authors = [{ name = "Do Thai Toan" }]
 license = { text = "MIT (code); see README for data and photo licences" }
