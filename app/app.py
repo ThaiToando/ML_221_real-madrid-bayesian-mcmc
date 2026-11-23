@@ -37,7 +37,7 @@ def model_for(season):
 
 games, signings, players = load_tables()
 st.title("Real Madrid: Does Money Buy Wins?")
-st.caption("MATH 221 final project · every number on this page comes from a probability model you can inspect")
+st.caption("ML 221 final project · every number on this page comes from a probability model you can inspect")
 tab1, tab2, tab3 = st.tabs(["Live season simulator", "Live match", "Bayesian transfer tracker"])
 
 # ---------------- Tab 1: season simulator (law of large numbers + 'what if')

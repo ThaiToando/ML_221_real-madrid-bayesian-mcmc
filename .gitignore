@@ -12,8 +12,8 @@ go_live.log
 .ruff_cache/
 .pytest_cache/
 figures/interactive/
-/Real_Madrid_MATH221_Presentation/
-/Real_Madrid_MATH221_Presentation.html
+/Real_Madrid_*_Presentation/
+/Real_Madrid_*_Presentation.html
 docs/node_modules/
 docs/package-lock.json
 # course material: not ours to publish

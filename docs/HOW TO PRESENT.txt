@@ -1,5 +1,5 @@
 Does money buy wins at Real Madrid?
-Do Thai Toan - MATH 221 Applied Probability, Final Project
+Do Thai Toan - ML 221 Applied Probability, Final Project
 
 HOW TO OPEN
 1. Unzip the whole folder first (right-click the zip > Extract All). Do not open files from inside the zip.

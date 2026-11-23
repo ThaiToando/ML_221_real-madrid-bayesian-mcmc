@@ -9,7 +9,7 @@ Every number on a slide is read from data/processed/ (CSV files + deck_numbers.j
 If the data are the FAKE test tables, every slide carries a red "FAKE DATA" badge.
 
 Run: python -m src.slides [--pdf]     (after python run_all.py, python -m src.animate, python -m src.deck_visuals)
-Content rule: few words; only MATH 221 formulas (Poisson, Binomial, Beta/Gamma posteriors, regression, CLT/LLN,
+Content rule: few words; only ML 221 formulas (Poisson, Binomial, Beta/Gamma posteriors, regression, CLT/LLN,
 chi-square, Skellam); every slide ties the math to Real Madrid.
 """
 import html
@@ -33,7 +33,7 @@ NAVY, LLY, NVO, SPX = _D["accent"], _D["c1"], _D["c2"], _D["c3"]     # accent / 
 APP_URL = "https://YOUR-APP.streamlit.app"          # paste the deployed Streamlit link here
 SITE_URL = "https://thaitoando.github.io/ML221-RealMadrid_Probability/"   # GitHub Pages: link previews use docs/img/social.png
 AUTHOR = "Do Thai Toan"
-COURSE = "MATH 221 Applied Probability"
+COURSE = "ML 221 Applied Probability"
 REPORT = "Real Madrid CF, La Liga 2014/15 to 2025/26"
 
 

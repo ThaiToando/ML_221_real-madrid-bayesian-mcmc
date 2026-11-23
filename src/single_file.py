@@ -1,7 +1,7 @@
 """Pack the finished deck (docs/index.html + assets/ + vendor/) into ONE html file that runs on any computer.
 
     python -m src.single_file            (after python run_all.py --deck)
-Output: docs/Real_Madrid_MATH221_Presentation.html. Open it in Chrome or Edge; no internet, no other files.
+Output: docs/Real_Madrid_ML221_Presentation.html. Open it in Chrome or Edge; no internet, no other files.
 
 How it works, in plain steps:
   1 every stylesheet and script from vendor/ is copied into the page (KaTeX keeps only its woff2 fonts);
@@ -17,7 +17,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
-OUT = DOCS / "Real_Madrid_MATH221_Presentation.html"   # GitHub Pages serves it as a download
+OUT = DOCS / "Real_Madrid_ML221_Presentation.html"   # GitHub Pages serves it as a download
 MIME = {"jpg": "image/jpeg", "jpeg": "image/jpeg", "png": "image/png", "gif": "image/gif", "mp4": "video/mp4",
         "woff2": "font/woff2", "webp": "image/webp"}
 
