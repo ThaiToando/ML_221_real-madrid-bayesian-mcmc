@@ -1,7 +1,7 @@
 # Does money buy wins at Real Madrid?
 
 **Seven probability models on twelve seasons of Transfermarkt data, presented as a live, interactive deck.**
-Final project for MATH 221 Applied Probability by **Do Thai Toan**.
+Final project for ML 221 Applied Probability by **Do Thai Toan**.
 
 [![CI](https://github.com/ThaiToando/ML221-RealMadrid_Probability/actions/workflows/ci.yml/badge.svg)](https://github.com/ThaiToando/ML221-RealMadrid_Probability/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/python-3.10%20%7C%203.12-blue)
